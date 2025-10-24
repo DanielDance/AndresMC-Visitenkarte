@@ -23,12 +23,17 @@ body {
 .discord-icon {
     height: 60px;
     width: 60px;
+    filter: brightness(1);
+    transition: filter 0.3s, transform 0.3s;
 }
 
 .map-icon {
     height: 80px;
     width: 80px;
+    filter: brightness(1);
+    transition: filter 0.3s, transform 0.3s;
 }
+
 
 body {
     display: flex;
@@ -57,6 +62,8 @@ body {
     /* heller Rand */
     width: 90%;
     max-width: 450px;
+    box-shadow: 4px 4px 15px black;
+    
 }
 
 .card-info {
@@ -89,12 +96,40 @@ body {
 
 
 }
-
-.site-footer {
-    text-align: center;
-    font-size: 12px;
+.card-buttons a {
+    padding: 0;
+    border-radius: 10px;
+    background-color: transparent; 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.card-buttons a:hover .discord-icon {
+    transform: scale(1.1); 
+    filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6)); 
+    cursor: pointer;
+}
+
+.card-buttons a:hover .map-icon {
+    transform: scale(1.1); 
+    filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6)); 
+    cursor: pointer;
+}
+
+.card-buttons a:active .discord-icon,
+.card-buttons a:active .map-icon {
+    transform: scale(0.95);
+}
+
+ footer {
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    text-shadow: 3px 3px 5px black;
+
 
 }
