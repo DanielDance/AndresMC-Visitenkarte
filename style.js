@@ -97,3 +97,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // alle 60 Sekunden neu prüfen
   setInterval(checkServer, 60000);
 });
+
+
+

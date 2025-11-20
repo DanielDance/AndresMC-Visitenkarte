@@ -296,6 +296,17 @@ h1 {
   }
 }
 
+.team-list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.team-list li {
+  margin-bottom: 2px;
+}
+
+
 .call-to-action {
   margin-top: 1rem;
   font-weight: 600;
@@ -447,6 +458,72 @@ footer {
   opacity: 0.95;
   position: relative;
 }
+
+/* Basis für die Schädel-Icons im Footer */
+.left-icon,
+.right-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Leicht anheben & heller machen beim Hover */
+.left-icon:hover,
+.right-icon:hover {
+  transform: translateY(-4px) scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Feuer-Effekt als „Schein“ unter dem Schädel */
+.left-icon::after,
+.right-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 34px;
+  height: 34px;
+  transform: translateX(-50%) translateY(0) scale(0.9);
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(255, 180, 0, 0.95) 0%,
+    rgba(255, 80, 0, 0.8) 30%,
+    rgba(255, 0, 0, 0.0) 70%
+  );
+  opacity: 0;
+  filter: blur(5px);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Beim Hover: Feuer sichtbar + kleine Flammen-Animation */
+.left-icon:hover::after,
+.right-icon:hover::after {
+  opacity: 1;
+  animation: flame 0.35s infinite alternate;
+}
+
+/* Flackernde Flamme */
+@keyframes flame {
+  from {
+    transform: translateX(-50%) translateY(-2px) scale(0.95);
+    filter: blur(4px);
+  }
+  to {
+    transform: translateX(-50%) translateY(-8px) scale(1.15);
+    filter: blur(7px);
+  }
+}
+
+
+
 
 /*----------------------------*/
 /* 1.Laptops / Surface ( bis 1800px ) */
@@ -788,6 +865,7 @@ footer {
     height: 40px;
     display: none;
   }
+  
 }
 
 /* ========== bis 480px (iPhone & Co.) ========== */
