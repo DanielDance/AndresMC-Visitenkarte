@@ -1,207 +1,998 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-image: url(/img/background_img.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    font-family: 'Roboto', sans-serif;
-    color: white;
+  margin: 0;
+  padding: 0;
+  /* Hintergrundbild */
+  background-image: url(/img/background_img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  /*Layout zentrieren*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Höhe NICHT fix setzen!! */
+  min-height: 100vh;
 }
 
 * {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0px;
 }
 
 .profile-image {
-    height: 150px;
-    border-radius: 10px;
+  height: 150px;
+  border-radius: 10px;
 }
 
 .discord-icon {
-    height: 80px;
-    width: auto;
-    filter: brightness(1, 5);
-    transition: filter 0.3s, transform 0.3s;
+  height: 80px;
+  width: auto;
+  filter: brightness(1, 5);
+  transition: filter 0.3s, transform 0.3s;
 }
 
 .map-icon {
-    height: 100px;
-    width: auto;
-    filter: brightness(1, 5);
-    transition: filter 0.3s, transform 0.3s;
+  height: 100px;
+  width: auto;
+  filter: brightness(1, 5);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.discord-icon,
+.map-icon {
+  height: 90px; /* deine Größe anpassen */
+  width: auto;
+  filter: brightness(1.5) drop-shadow(0 0 8px rgba(0, 255, 255, 0.6));
+  transition: transform 0.25s ease, filter 0.25s ease;
+  animation: icon-float 3.5s ease-in-out infinite;
+}
+
+@keyframes icon-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.card-buttons a:hover .discord-icon,
+.card-buttons a:hover .map-icon {
+  transform: translateY(-4px) scale(1.08);
+  filter: brightness(2) drop-shadow(0 0 16px rgba(255, 255, 255, 0.8));
 }
 
 .left-icon {
-    position: relative;
-    bottom: 5px;
-    /* unten im Footer */
-    height: 55px;
-    /* Größe anpassen nach Geschmack */
-    width: auto;
-    filter: brightness(1.3) drop-shadow(0 0 10px rgba(0, 255, 120, 0.6));
-    transition: transform 0.25s ease, filter 0.25s ease;
-    cursor: pointer;
-    padding-right: 15px;
+  position: relative;
+  bottom: 5px;
+  /* unten im Footer */
+  height: 55px;
+  /* Größe anpassen nach Geschmack */
+  width: auto;
+  filter: brightness(1.3) drop-shadow(0 0 10px rgba(0, 255, 120, 0.6));
+  transition: transform 0.25s ease, filter 0.25s ease;
+  cursor: pointer;
+  padding-right: 15px;
 }
 
 .right-icon {
-    position: relative;
-    bottom: 5px;
-    /* unten im Footer */
-    height: 55px;
-    /* Größe anpassen nach Geschmack */
-    width: auto;
-    filter: brightness(1.3) drop-shadow(0 0 10px rgba(0, 255, 120, 0.6));
-    transition: transform 0.25s ease, filter 0.25s ease;
-    cursor: pointer;
-    padding-left: 15px;
-}
-
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
+  position: relative;
+  bottom: 5px;
+  /* unten im Footer */
+  height: 55px;
+  /* Größe anpassen nach Geschmack */
+  width: auto;
+  filter: brightness(1.3) drop-shadow(0 0 10px rgba(0, 255, 120, 0.6));
+  transition: transform 0.25s ease, filter 0.25s ease;
+  cursor: pointer;
+  padding-left: 15px;
 }
 
 h1 {
-    text-align: center;
-    font-size: 38px;
-    margin-bottom: 10px;
-    text-shadow: 3px 3px 5px black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 10px;
+  text-shadow: 3px 3px 5px black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .card-text {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: #e0e0e0;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 .over-text {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    color: #e0e0e0;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #e0e0e0;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 16px;
 }
 
 .card-main {
-    border: 2px solid red;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.1);
-    /* leichte Transparenz */
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    /* Weichzeichner */
-    -webkit-backdrop-filter: blur(10px);
-    /* Safari-Support */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    /* sanfter Schatten */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    /* heller Rand */
-    width: 90%;
-    max-width: 650px;
-    height: 85vh;
-    box-shadow: 6px 6px 12px black;
-
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  /* leichte Transparenz */
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  /* Weichzeichner */
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari-Support */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  /* sanfter Schatten */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* heller Rand */
+  width: 90%;
+  max-width: 650px;
+  box-shadow: 6px 6px 12px black;
 }
 
 .card-info {
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    gap: 8px;
-    background-color: rgba(110, 110, 110, 0.438);
-    box-shadow: 4px 4px 15px black;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 8px;
+  background-color: rgba(110, 110, 110, 0.438);
+  box-shadow: 4px 4px 15px black;
 }
 
 .card-content {
-    text-align: center;
-    border: 2px solid black;
-    border-radius: 10px;
-    margin-top: 35px;
-    padding: 65px;
-    background-color: rgba(117, 117, 117, 0.562);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    box-shadow: 4px 4px 15px black;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 35px;
+  padding: 65px;
+  background-color: rgba(117, 117, 117, 0.562);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  box-shadow: 4px 4px 15px black;
+  line-height: 1.6;
+}
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
 
+.section-subtitle {
+  font-size: 18px;
+  margin: 1.5rem 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+
+.intro {
+  font-size: 17px;
+  margin-bottom: 1rem;
+}
+
+.highlight-name {
+  font-weight: 700;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem;
+}
+
+.feature-list li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 0.4rem;
+}
+
+.feature-list li span {
+  display: inline-block;
+}
+
+/* Call to Action Styling */
+.info-sections {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* einzelnes Panel */
+.info-item {
+  background: rgba(10, 10, 10, 0.4);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+  overflow: hidden; /* wichtig für die Höhe-Animation */
+  backdrop-filter: blur(10px);
+}
+
+/* Kopfzeile, die klickbar ist */
+.info-header {
+  width: 100%;
+  padding: 0.9rem 1.3rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.info-header:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Pfeil */
+.chevron {
+  font-size: 18px;
+  transition: transform 0.25s ease;
+}
+
+/* Inhalt (start: zugeklappt) */
+.info-body {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 1.3rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+}
+
+.info-body p {
+  margin: 0.8rem 0 0.4rem;
+}
+
+.info-body ul {
+  margin: 0 0 0.8rem 1.1rem;
+  padding: 0;
+}
+
+/* Zustand: geöffnet */
+.info-item.open .info-body {
+  max-height: 400px; /* reicht locker für den Text */
+  opacity: 1;
+  padding: 0.8rem 1.3rem 1.1rem;
+}
+
+.info-item.open .chevron {
+  transform: rotate(180deg);
+}
+
+/* etwas kompakter auf sehr schmalen Screens */
+@media (max-width: 480px) {
+  .info-header {
+    font-size: 16px;
+    padding: 0.8rem 1rem;
+  }
+
+  .info-body {
+    padding: 0 1rem;
+  }
+
+  .info-item.open .info-body {
+    padding: 0.7rem 1rem 1rem;
+  }
+}
+
+.call-to-action {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.server-info {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 16px;
+  text-align: center;
+}
+.card.card-content p {
+  line-height: 1.35;
+  margin-bottom: 0.8em;
 }
 
 .card-buttons {
-    text-align: center;
-    margin-top: 40px;
-    display: flex;
-    justify-content: space-around;
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
 
+.copy-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
 
+#copy-btn {
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+}
+
+#copy-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.45);
+}
+
+#copy-btn:active {
+  transform: scale(0.95);
 }
 
 .card-buttons a {
-    padding: 0;
-    border-radius: 10px;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    -webkit-backdrop-filter: blur(6px) saturate(1.05);
-    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-    cursor: pointer;
+  padding: 0;
+  border-radius: 10px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(6px) saturate(1.05);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  cursor: pointer;
 }
 
 .card-buttons a:hover,
 .card-buttons a:focus-visible {
-    background: rgba(255, 255, 255, .14);
-    transform: translateY(-1px) scale(1.04);
-    box-shadow: 0 0 20px rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
 }
 
 .card-buttons a:hover .discord-icon {
-    transform: scale(1.1);
-    filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
-    cursor: pointer;
+  transform: scale(1.1);
+  filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+  cursor: pointer;
 }
 
 .card-buttons a:hover .map-icon {
-    transform: scale(1.1);
-    filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
-    cursor: pointer;
+  transform: scale(1.1);
+  filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+  cursor: pointer;
 }
 
 .card-buttons a:active .discord-icon,
 .card-buttons a:active .map-icon {
-    transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.status-pill {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 14px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: gray;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.status-pill.online .status-dot {
+  background: #38ff5a;
+  box-shadow: 0 0 10px #38ff5a;
+}
+
+.status-pill.offline .status-dot {
+  background: #ff4b4b;
+  box-shadow: 0 0 10px #ff4b4b;
+}
+
+.status-pill.checking .status-dot {
+  animation: status-pulse 1s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
 }
 
 footer {
-    text-align: center;
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  text-shadow: 8px px 15px black;
+  opacity: 0.95;
+  position: relative;
+}
+
+/*----------------------------*/
+/* 1.Laptops / Surface ( bis 1800px ) */
+@media only screen and (max-height: 1800px) {
+  * {
+    margin: 30px;
+    width: auto;
+  }
+  h1 {
+    font-size: 54px;
+  }
+  .profile-image {
+    height: 220px;
+    width: 400px;
+    border-radius: 10px;
+  }
+  .discord-icon {
+    height: 100px;
+    width: auto;
+  }
+  .map-icon {
+    height: 120px;
+    width: auto;
+  }
+  .right-icon,
+  .left-icon {
+    height: 75px;
+  }
+  footer {
+    font-size: 42px;
+    margin-top: 20px;
+  }
+  .over-text {
     font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 35px;
-    text-shadow: 8px px 15px black;
-    opacity: .95;
-    position: relative;
+  }
+  .card-main {
+    max-width: 700px;
+  }
+}
+
+/* 1.Laptops / Surface ( bis 1600px ) */
+@media only screen and (max-height: 1600px) {
+  * {
+    margin: 25px;
+    width: auto;
+  }
+  h1 {
+    font-size: 48px;
+  }
+  .profile-image {
+    height: 200px;
+    width: 380px;
+    border-radius: 10px;
+  }
+  .discord-icon {
+    height: 90px;
+    width: auto;
+  }
+  .map-icon {
+    height: 110px;
+    width: auto;
+  }
+  .right-icon,
+  .left-icon {
+    height: 70px;
+  }
+  footer {
+    font-size: 38px;
+    margin-top: 15px;
+  }
+  .over-text {
+    font-size: 18px;
+  }
+  .card-main {
+    max-width: 680px;
+  }
+}
+
+/* 2.Tablets / Kleine Laptops ( bis 1200px ) */
+@media only screen and (max-height: 1200px) {
+  * {
+    margin: 20px;
+    width: auto;
+  }
+  h1 {
+    font-size: 42px;
+  }
+  .profile-image {
+    height: 180px;
+    width: 350px;
+    border-radius: 10px;
+  }
+  .discord-icon {
+    height: 80px;
+    width: auto;
+  }
+  .map-icon {
+    height: 100px;
+    width: auto;
+  }
+  .right-icon,
+  .left-icon {
+    height: 60px;
+  }
+  footer {
+    font-size: 32px;
+    margin-top: 10px;
+  }
+  .over-text {
+    font-size: 16px;
+  }
+  .card-main {
+    max-width: 650px;
+  }
+}
+
+/* 3.Smartphones / Kleine Tablets ( bis 800px ) */
+@media only screen and (max-height: 800px) {
+  * {
+    margin: 15px;
+    width: auto;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  .profile-image {
+    height: 150px;
+    width: 300px;
+    border-radius: 10px;
+  }
+  .discord-icon {
+    height: 70px;
+    width: auto;
+  }
+  .map-icon {
+    height: 90px;
+    width: auto;
+  }
+  .right-icon,
+  .left-icon {
+    height: 55px;
+  }
+  footer {
+    font-size: 28px;
+    margin-top: 5px;
+  }
+  .over-text {
+    font-size: 14px;
+  }
+  .card-main {
+    max-width: 600px;
+  }
+}
+
+/* Breite ab 1077px */
+@media only screen and (max-width: 1077px) {
+  body {
+    padding: 10px;
+  }
+  .card-main {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+  }
+  .card-content {
+    padding: 50px;
+    font-size: 18px;
+  }
+  .map-icon {
+    height: 85px;
+  }
+  .discord-icon {
+    height: 75px;
+  }
+  .profile-image {
+    height: 140px;
+    width: 280px;
+  }
+  footer {
+    font-size: 24px;
+  }
+}
+
+/* Breite ab 600px */
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+  }
+  .card-main {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+  }
+  .card-info {
+    padding: 10px;
+    gap: 7px;
+  }
+  .card-content {
+    padding: 30px;
+    font-size: 16px;
+  }
+  .map-icon {
+    height: 70px;
+  }
+  .discord-icon {
+    height: 60px;
+  }
+  .left-icon,
+  .right-icon {
+    height: 40px;
+  }
+
+  .profile-image {
+    height: 120px;
+    width: 240px;
+  }
+
+  footer {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-content {
+    font-size: 16px;
+    padding: 28px 16px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+  }
+
+  .server-info {
+    font-size: 14px;
+  }
+}
+
+/* briete ab 400px */
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 28px;
+  }
+  .card-main {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+  }
+  .card-info {
+    padding: 8px;
+    gap: 6px;
+  }
+  .card-content {
+    padding: 20px;
+    font-size: 14px;
+  }
+  .map-icon {
+    height: 60px;
+  }
+  .discord-icon {
+    height: 50px;
+  }
+  .left-icon,
+  .right-icon {
+    height: 32px;
+  }
+
+  .profile-image {
+    height: 100px;
+    width: 200px;
+  }
+
+  footer {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+/* ========== bis 1280px (kleinere Laptops) ========== */
+@media (max-width: 1280px) {
+  .card-main {
+    max-width: 720px;
+    padding: 20px;
+  }
+
+  .card-content {
+    padding: 40px;
+    font-size: 18px;
+  }
+}
+
+/* ========== bis 1024px (normale Laptops / Tablets quer) ========== */
+@media (max-width: 1024px) {
+  .card-main {
+    max-width: 640px;
+    margin: 20px auto;
+  }
+
+  .card-content {
+    padding: 32px;
+    font-size: 17px;
+  }
+
+  h1.card-title {
+    font-size: 34px;
+  }
+}
+
+/* ========== bis 768px (Tablet hochkant / kleines Notebook) ========== */
+@media (max-width: 768px) {
+  .card-main {
+    max-width: 90%;
+    margin: 16px auto;
+  }
+
+  .card-content {
+    padding: 24px;
+    font-size: 16px;
+  }
+
+  h1.card-title {
+    font-size: 28px;
+  }
+
+  .profile-image {
+    height: 120px;
+  }
+
+  footer {
+    font-size: 16px;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .left-icon,
+  .right-icon {
+    height: 40px;
+    display:none;
+  }
+}
+
+/* ========== bis 480px (iPhone & Co.) ========== */
+@media (max-width: 480px) {
+  .card-main {
+    max-width: 95%;
+    margin: 12px auto 24px;
+  }
+
+  .card-content {
+    padding: 18px;
+    font-size: 15px;
+  }
+
+  h1.card-title {
+    font-size: 24px;
+  }
+
+  .status-pill {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .discord-icon,
+  .map-icon {
+    height: 70px;
+  }
+
+  .copy-wrapper {
+    font-size: 14px;
+  }
+}
+
+/* Smartphones: ca. 320px Breite */
+@media (max-width: 400px) {
+  body {
+    padding: 8px 0;
+  }
+
+  .card-main {
+    width: 95%;
+    max-width: 360px;
+    padding: 12px;
+    margin: 8px auto 16px;
+    border-radius: 16px;
+  }
+
+  .card-content {
+    padding: 20px 14px;
+  }
+
+  /* Titel-Card oben */
+  .profile-image {
+    height: 90px;
+  }
+
+  h1.card-title {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .over-text {
+    font-size: 12px;
+  }
+
+  /* Haupttext etwas kleiner & luftiger */
+  .section-title {
+    font-size: 16px;
+  }
+
+  .intro,
+  .main-text p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* Info-Kacheln */
+  .info-sections {
+    gap: 10px;
+  }
+
+  .info-item {
+    padding: 10px 14px;
+  }
+
+  .info-header {
+    font-size: 14px;
+  }
+
+  .info-body {
+    font-size: 13px;
+  }
+
+  /* IP + Status Card */
+  .ip-card {
+    padding: 16px 12px;
+  }
+
+  .ip-button {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+
+  .server-status-text {
+    font-size: 13px;
+  }
+
+  /* Footer-Text & Smaragde */
+  footer {
+    font-size: 12px;
+    margin-top: 18px;
+  }
+
+  .left-icon,
+  .right-icon {
+    height: 40px;
+    display:none;
+  }
+}
+/* ===== Smartphone — Ultra-Klein (320px – 400px) ===== */
+@media (max-width: 400px) {
+  body {
+    padding: 0;
+  }
+
+  .card-main {
+    width: 92%;
+    max-width: 350px;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 14px;
+  }
+
+  /* Titelkarte oben */
+  .profile-image {
+    height: 80px;
+  }
+
+  h1.card-title {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .over-text {
+    font-size: 11px;
+  }
+
+  /* Intro-Text */
+  .section-title {
+    font-size: 15px;
+  }
+
+  .intro,
+  .main-text p {
+    font-size: 13px;
+    line-height: 1.35;
+    padding: 0 4px;
+  }
+
+  /* Die 3 Info-Kacheln */
+  .info-item {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 10px 0;
+  }
+
+  .info-header {
+    font-size: 14px;
+  }
+
+  .info-body {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* IP & Status */
+  .ip-card {
+    padding: 16px 10px;
+  }
+
+  .ip-button {
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 16px;
+  }
+
+  .server-status-text {
+    font-size: 13px;
+  }
+
+  /* Unten die Icons */
+  .card-buttons a img {
+    height: 45px;
+  
+  }
+
+  /* Footer */
+  footer {
+    font-size: 12px;
+    margin-top: 12px;
+  }
+  .left-icon,
+  .right-icon {
+    height: 35px;
+    display:none;
+  }
 }
