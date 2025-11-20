@@ -786,7 +786,7 @@ footer {
   .left-icon,
   .right-icon {
     height: 40px;
-    display:none;
+    display: none;
   }
 }
 
@@ -904,7 +904,11 @@ footer {
   .left-icon,
   .right-icon {
     height: 40px;
-    display:none;
+    display: none;
+  }
+  .status-pill {
+    font-size: 10px;
+    padding: 1px 10px;
   }
 }
 /* ===== Smartphone — Ultra-Klein (320px – 400px) ===== */
@@ -950,7 +954,7 @@ footer {
   /* Die 3 Info-Kacheln */
   .info-item {
     width: 100%;
-    padding: 12px;
+    padding: 5px;
     border-radius: 12px;
     margin: 10px 0;
   }
@@ -982,7 +986,6 @@ footer {
   /* Unten die Icons */
   .card-buttons a img {
     height: 45px;
-  
   }
 
   /* Footer */
@@ -993,6 +996,10 @@ footer {
   .left-icon,
   .right-icon {
     height: 35px;
-    display:none;
+    display: none;
+  }
+  .status-pill {
+    font-size: 9px;
+    padding: 1px 10px;
   }
 }
