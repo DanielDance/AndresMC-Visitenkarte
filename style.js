@@ -1,49 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const infoItems = document.querySelectorAll(".info-item");
-
-  infoItems.forEach((item) => {
-    const header = item.querySelector(".info-header");
-
-    header.addEventListener("click", () => {
-      // optional: nur ein Panel gleichzeitig offen lassen
-      // infoItems.forEach(i => {
-      //   if (i !== item) i.classList.remove('open');
-      // });
-
-      item.classList.toggle("open");
-    });
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  // ======= COPY BUTTON =======
-  const copyBtn = document.getElementById("copy-btn");
-  const ipText = document.getElementById("server-ip").innerText;
-
-  copyBtn.addEventListener("click", async () => {
-    await navigator.clipboard.writeText(ipText);
-
-    copyBtn.innerText = "Kopiert ✔";
-    copyBtn.style.background = "rgba(50, 205, 50, 0.6)";
-
-    setTimeout(() => {
-      copyBtn.innerText = "IP kopieren";
-      copyBtn.style.background = "rgba(255, 255, 255, 0.2)";
-    }, 1500);
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
   // ===== Accordion =====
   const infoItems = document.querySelectorAll(".info-item");
   infoItems.forEach((item) => {
     const header = item.querySelector(".info-header");
+    const body = item.querySelector(".info-body");
+
+    // Set initial ARIA state based on whether the item has the 'open' class
+    const isOpen = item.classList.contains("open");
+    header.setAttribute("aria-expanded", isOpen);
+    // Initially hide the body if not open, for non-JS users or if CSS fails
+    if (!isOpen) {
+      body.style.display = "none";
+    }
+
     header.addEventListener("click", () => {
+      const isExpanded = header.getAttribute("aria-expanded") === "true";
+
       item.classList.toggle("open");
+      header.setAttribute("aria-expanded", !isExpanded);
+
+      // Toggle display for better accessibility and fallback
+      if (body.style.display === "none") {
+        body.style.display = "block";
+      } else {
+        body.style.display = "none";
+      }
     });
   });
 
-  // ===== Copy Button =====
+  // ======= COPY BUTTON =======
   const copyBtn = document.getElementById("copy-btn");
   const ipSpan = document.getElementById("server-ip");
   if (copyBtn && ipSpan) {
@@ -70,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusText = statusEl.querySelector(".status-text");
 
     try {
-      // Minecraft-Status API (Domain kannst du anpassen)
       const res = await fetch("https://api.mcsrvstat.us/3/andresmc.de");
       const data = await res.json();
 
@@ -94,9 +78,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   checkServer();
-  // alle 60 Sekunden neu prüfen
   setInterval(checkServer, 60000);
 });
-
-
-
