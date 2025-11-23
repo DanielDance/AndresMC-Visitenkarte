@@ -1,7 +1,17 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px; /* Base font size for rem units */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
-  /* Hintergrundbild */
   background-image: url(/img/background_img.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -9,46 +19,38 @@ body {
   background-position: center;
   font-family: "Roboto", sans-serif;
   color: white;
-  /*Layout zentrieren*/
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* Höhe NICHT fix setzen!! */
   min-height: 100vh;
+  line-height: 1.5; /* Improve readability */
 }
 
-* {
+/* Global font adjustment for elements that had Gill Sans */
+body, h1, h2, h3, p, ul, li, button, span, a {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin: 0px;
 }
 
 .profile-image {
-  height: 150px;
+  max-width: 150px; /* Use max-width for responsiveness */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 10px;
-}
-
-.discord-icon {
-  height: 80px;
-  width: auto;
-  filter: brightness(1, 5);
-  transition: filter 0.3s, transform 0.3s;
-}
-
-.map-icon {
-  height: 100px;
-  width: auto;
-  filter: brightness(1, 5);
-  transition: filter 0.3s, transform 0.3s;
 }
 
 .discord-icon,
 .map-icon {
-  height: 90px; /* deine Größe anpassen */
+  max-height: 90px; /* Base size */
   width: auto;
   filter: brightness(1.5) drop-shadow(0 0 8px rgba(0, 255, 255, 0.6));
   transition: transform 0.25s ease, filter 0.25s ease;
   animation: icon-float 3.5s ease-in-out infinite;
+}
+.discord-icon {
+  max-height: 80px;
+}
+.map-icon {
+  max-height: 100px;
 }
 
 @keyframes icon-float {
@@ -97,8 +99,8 @@ body {
 
 h1 {
   text-align: center;
-  font-size: 38px;
-  margin-bottom: 10px;
+  font-size: 2.375rem; /* 38px / 16px */
+  margin-bottom: 0.625rem; /* 10px / 16px */
   text-shadow: 3px 3px 5px black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -122,21 +124,17 @@ h1 {
 }
 
 .card-main {
-  padding: 16px;
+  padding: 1rem; /* 16px / 16px */
   background: rgba(255, 255, 255, 0.1);
-  /* leichte Transparenz */
-  border-radius: 20px;
+  border-radius: 1.25rem; /* 20px / 16px */
   backdrop-filter: blur(10px);
-  /* Weichzeichner */
   -webkit-backdrop-filter: blur(10px);
-  /* Safari-Support */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  /* sanfter Schatten */
   border: 1px solid rgba(255, 255, 255, 0.2);
-  /* heller Rand */
-  width: 90%;
-  max-width: 650px;
+  width: 90%; /* Responsive width up to max-width */
+  max-width: 900px; /* Increased max-width for larger screens */
   box-shadow: 6px 6px 12px black;
+  margin: 0 auto; /* Center the card */
 }
 
 .card-info {
@@ -156,12 +154,11 @@ h1 {
 .card-content {
   text-align: center;
   border: 2px solid black;
-  border-radius: 10px;
-  margin-top: 35px;
-  padding: 65px;
+  border-radius: 0.625rem; /* 10px / 16px */
+  margin-top: 2.1875rem; /* 35px / 16px */
+  padding: 4.0625rem; /* 65px / 16px */
   background-color: rgba(117, 117, 117, 0.562);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem; /* 20px / 16px */
   box-shadow: 4px 4px 15px black;
   line-height: 1.6;
 }
@@ -525,559 +522,199 @@ footer {
 
 
 
-/*----------------------------*/
-/* 1.Laptops / Surface ( bis 1800px ) */
-@media only screen and (max-height: 1800px) {
-  * {
-    margin: 30px;
-    width: auto;
-  }
-  h1 {
-    font-size: 54px;
-  }
-  .profile-image {
-    height: 220px;
-    width: 400px;
-    border-radius: 10px;
-  }
-  .discord-icon {
-    height: 100px;
-    width: auto;
-  }
-  .map-icon {
-    height: 120px;
-    width: auto;
-  }
-  .right-icon,
-  .left-icon {
-    height: 75px;
-  }
-  footer {
-    font-size: 42px;
-    margin-top: 20px;
-  }
-  .over-text {
-    font-size: 20px;
-  }
-  .card-main {
-    max-width: 700px;
-  }
-}
 
-/* 1.Laptops / Surface ( bis 1600px ) */
-@media only screen and (max-height: 1600px) {
-  * {
-    margin: 25px;
-    width: auto;
-  }
-  h1 {
-    font-size: 48px;
-  }
-  .profile-image {
-    height: 200px;
-    width: 380px;
-    border-radius: 10px;
-  }
-  .discord-icon {
-    height: 90px;
-    width: auto;
-  }
-  .map-icon {
-    height: 110px;
-    width: auto;
-  }
-  .right-icon,
-  .left-icon {
-    height: 70px;
-  }
-  footer {
-    font-size: 38px;
-    margin-top: 15px;
-  }
-  .over-text {
-    font-size: 18px;
-  }
-  .card-main {
-    max-width: 680px;
-  }
-}
+/* Media queries for responsiveness */
 
-/* 2.Tablets / Kleine Laptops ( bis 1200px ) */
-@media only screen and (max-height: 1200px) {
-  * {
-    margin: 20px;
-    width: auto;
-  }
-  h1 {
-    font-size: 42px;
-  }
-  .profile-image {
-    height: 180px;
-    width: 350px;
-    border-radius: 10px;
-  }
-  .discord-icon {
-    height: 80px;
-    width: auto;
-  }
-  .map-icon {
-    height: 100px;
-    width: auto;
-  }
-  .right-icon,
-  .left-icon {
-    height: 60px;
-  }
-  footer {
-    font-size: 32px;
-    margin-top: 10px;
-  }
-  .over-text {
-    font-size: 16px;
-  }
-  .card-main {
-    max-width: 650px;
-  }
-}
+/* Large screens / Desktops (max-width: 1920px and up) */
+/* No specific max-width needed here, as the default 900px is suitable */
 
-/* 3.Smartphones / Kleine Tablets ( bis 800px ) */
-@media only screen and (max-height: 800px) {
-  * {
-    margin: 15px;
-    width: auto;
-  }
-  h1 {
-    font-size: 36px;
-  }
-  .profile-image {
-    height: 150px;
-    width: 300px;
-    border-radius: 10px;
-  }
-  .discord-icon {
-    height: 70px;
-    width: auto;
-  }
-  .map-icon {
-    height: 90px;
-    width: auto;
-  }
-  .right-icon,
-  .left-icon {
-    height: 55px;
-  }
-  footer {
-    font-size: 28px;
-    margin-top: 5px;
-  }
-  .over-text {
-    font-size: 14px;
-  }
-  .card-main {
-    max-width: 600px;
-  }
-}
-
-/* Breite ab 1077px */
-@media only screen and (max-width: 1077px) {
-  body {
-    padding: 10px;
-  }
-  .card-main {
-    width: 100%;
-    max-width: 500px;
-    padding: 12px;
-  }
-  .card-content {
-    padding: 50px;
-    font-size: 18px;
-  }
-  .map-icon {
-    height: 85px;
-  }
-  .discord-icon {
-    height: 75px;
-  }
-  .profile-image {
-    height: 140px;
-    width: 280px;
-  }
-  footer {
-    font-size: 24px;
-  }
-}
-
-/* Breite ab 600px */
-@media only screen and (max-width: 600px) {
-  h1 {
-    font-size: 32px;
-  }
-  .card-main {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px;
-  }
-  .card-info {
-    padding: 10px;
-    gap: 7px;
-  }
-  .card-content {
-    padding: 30px;
-    font-size: 16px;
-  }
-  .map-icon {
-    height: 70px;
-  }
-  .discord-icon {
-    height: 60px;
-  }
-  .left-icon,
-  .right-icon {
-    height: 40px;
-  }
-
-  .profile-image {
-    height: 120px;
-    width: 240px;
-  }
-
-  footer {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-content {
-    font-size: 16px;
-    padding: 28px 16px;
-  }
-
-  .section-title {
-    font-size: 22px;
-  }
-
-  .section-subtitle {
-    font-size: 16px;
-  }
-
-  .server-info {
-    font-size: 14px;
-  }
-}
-
-/* briete ab 400px */
-@media only screen and (max-width: 400px) {
-  h1 {
-    font-size: 28px;
-  }
-  .card-main {
-    width: 100%;
-    max-width: 300px;
-    padding: 8px;
-  }
-  .card-info {
-    padding: 8px;
-    gap: 6px;
-  }
-  .card-content {
-    padding: 20px;
-    font-size: 14px;
-  }
-  .map-icon {
-    height: 60px;
-  }
-  .discord-icon {
-    height: 50px;
-  }
-  .left-icon,
-  .right-icon {
-    height: 32px;
-  }
-
-  .profile-image {
-    height: 100px;
-    width: 200px;
-  }
-
-  footer {
-    font-size: 16px;
-    text-align: center;
-  }
-}
-
-/* ========== bis 1280px (kleinere Laptops) ========== */
+/* Medium screens / Laptops (max-width: 1280px) */
 @media (max-width: 1280px) {
   .card-main {
-    max-width: 720px;
-    padding: 20px;
+    max-width: 800px; /* Adjust for medium screens */
+    padding: 1.25rem; /* 20px */
   }
 
   .card-content {
-    padding: 40px;
-    font-size: 18px;
+    padding: 2.5rem; /* 40px */
+    font-size: 1.125rem; /* 18px */
   }
 }
 
-/* ========== bis 1024px (normale Laptops / Tablets quer) ========== */
+/* Small screens / Tablets (max-width: 1024px) */
 @media (max-width: 1024px) {
   .card-main {
-    max-width: 640px;
-    margin: 20px auto;
+    max-width: 600px; /* Adjust for small screens/tablets */
+    margin: 1.25rem auto; /* 20px */
   }
 
   .card-content {
-    padding: 32px;
-    font-size: 17px;
+    padding: 2rem; /* 32px */
+    font-size: 1.0625rem; /* 17px */
   }
 
   h1.card-title {
-    font-size: 34px;
+    font-size: 2.125rem; /* 34px */
   }
 }
 
-/* ========== bis 768px (Tablet hochkant / kleines Notebook) ========== */
+/* Small screens / Large phones (max-width: 768px) */
 @media (max-width: 768px) {
   .card-main {
     max-width: 90%;
-    margin: 16px auto;
+    margin: 1rem auto; /* 16px */
   }
 
   .card-content {
-    padding: 24px;
-    font-size: 16px;
+    padding: 1.5rem; /* 24px */
+    font-size: 1rem; /* 16px */
   }
 
   h1.card-title {
-    font-size: 28px;
+    font-size: 1.75rem; /* 28px */
   }
 
   .profile-image {
-    height: 120px;
+    max-width: 120px;
   }
 
   footer {
-    font-size: 16px;
+    font-size: 1rem; /* 16px */
     flex-direction: column;
-    gap: 6px;
+    gap: 0.375rem; /* 6px */
   }
   .left-icon,
   .right-icon {
-    height: 40px;
-    display: none;
+    max-height: 40px;
+    display: none; /* Hide icons on smaller screens to save space */
   }
-  
-}
-
-/* ========== bis 480px (iPhone & Co.) ========== */
-@media (max-width: 480px) {
-  .card-main {
-    max-width: 95%;
-    margin: 12px auto 24px;
+  .over-text {
+    font-size: 0.875rem; /* 14px */
   }
-
-  .card-content {
-    padding: 18px;
-    font-size: 15px;
+  .section-title {
+    font-size: 1.25rem; /* 20px */
   }
-
-  h1.card-title {
-    font-size: 24px;
+  .section-subtitle {
+    font-size: 0.9rem; /* ~14.4px */
   }
-
+  .intro {
+    font-size: 0.95rem; /* ~15.2px */
+  }
+  .info-header {
+    font-size: 0.95rem; /* ~15.2px */
+    padding: 0.7rem 1rem;
+  }
+  .info-body {
+    font-size: 0.9rem; /* ~14.4px */
+    padding: 0 1rem;
+  }
+  .info-item.open .info-body {
+    padding: 0.7rem 1rem 1rem;
+  }
+  #copy-btn {
+    font-size: 1rem; /* 16px */
+    padding: 0.75rem 1.25rem; /* 12px 20px */
+  }
   .status-pill {
-    font-size: 12px;
-    padding: 6px 10px;
+    font-size: 0.8rem; /* 12.8px */
+    padding: 0.5rem 0.8rem; /* 8px 12.8px */
   }
-
+  .card-buttons a {
+    width: 48px;
+    height: 48px;
+  }
   .discord-icon,
   .map-icon {
-    height: 70px;
-  }
-
-  .copy-wrapper {
-    font-size: 14px;
+    max-height: 60px;
   }
 }
 
-/* Smartphones: ca. 320px Breite */
-@media (max-width: 400px) {
+/* Extra small screens / Mobile (max-width: 480px) */
+@media (max-width: 480px) {
   body {
-    padding: 8px 0;
+    padding: 0.5rem 0;
+  }
+  .card-main {
+    max-width: 95%;
+    margin: 0.75rem auto 1.5rem; /* 12px auto 24px */
+    padding: 0.75rem; /* 12px */
   }
 
-  .card-main {
-    width: 95%;
-    max-width: 360px;
-    padding: 12px;
-    margin: 8px auto 16px;
-    border-radius: 16px;
+  .card-info {
+    padding: 0.5rem; /* 8px */
+    gap: 0.4rem; /* 6.4px */
   }
 
   .card-content {
-    padding: 20px 14px;
+    padding: 1rem; /* 16px */
+    font-size: 0.9rem; /* 14.4px */
+    margin-top: 1.5rem; /* 24px */
   }
 
-  /* Titel-Card oben */
   .profile-image {
-    height: 90px;
+    max-width: 90px;
   }
 
   h1.card-title {
-    font-size: 22px;
-    margin-bottom: 6px;
+    font-size: 1.5rem; /* 24px */
+    margin-bottom: 0.4rem; /* 6.4px */
   }
-
   .over-text {
-    font-size: 12px;
+    font-size: 0.75rem; /* 12px */
   }
-
-  /* Haupttext etwas kleiner & luftiger */
   .section-title {
-    font-size: 16px;
+    font-size: 1.125rem; /* 18px */
   }
-
-  .intro,
-  .main-text p {
-    font-size: 13px;
-    line-height: 1.4;
+  .section-subtitle {
+    font-size: 0.85rem; /* ~13.6px */
+    margin: 1rem 0 0.3rem; /* 16px 0 4.8px */
   }
-
-  /* Info-Kacheln */
-  .info-sections {
-    gap: 10px;
+  .intro {
+    font-size: 0.85rem; /* ~13.6px */
   }
-
-  .info-item {
-    padding: 10px 14px;
+  .feature-list li {
+    margin-bottom: 0.3rem;
   }
-
   .info-header {
-    font-size: 14px;
+    font-size: 0.85rem; /* ~13.6px */
+    padding: 0.6rem 0.8rem;
   }
-
   .info-body {
-    font-size: 13px;
+    font-size: 0.8rem; /* ~12.8px */
+    padding: 0 0.8rem;
   }
-
-  /* IP + Status Card */
-  .ip-card {
-    padding: 16px 12px;
+  .info-item.open .info-body {
+    padding: 0.6rem 0.8rem 0.8rem;
   }
-
-  .ip-button {
-    font-size: 14px;
-    padding: 10px 0;
+  .team-list li {
+    margin-bottom: 1px;
   }
-
-  .server-status-text {
-    font-size: 13px;
+  .server-info {
+    font-size: 0.8rem; /* 12.8px */
+    margin-top: 1rem;
+    padding-top: 0.75rem;
   }
-
-  /* Footer-Text & Smaragde */
-  footer {
-    font-size: 12px;
-    margin-top: 18px;
-  }
-
-  .left-icon,
-  .right-icon {
-    height: 40px;
-    display: none;
+  #copy-btn {
+    padding: 0.6rem 1rem; /* 9.6px 16px */
+    font-size: 0.9rem; /* 14.4px */
   }
   .status-pill {
-    font-size: 10px;
-    padding: 1px 10px;
+    font-size: 0.7rem; /* 11.2px */
+    padding: 0.4rem 0.7rem; /* 6.4px 11.2px */
   }
-}
-/* ===== Smartphone — Ultra-Klein (320px – 400px) ===== */
-@media (max-width: 400px) {
-  body {
-    padding: 0;
+  .card-buttons {
+    margin-top: 2rem; /* 32px */
   }
-
-  .card-main {
-    width: 92%;
-    max-width: 350px;
-    padding: 10px;
-    margin: 10px auto;
-    border-radius: 14px;
+  .card-buttons a {
+    width: 42px;
+    height: 42px;
   }
-
-  /* Titelkarte oben */
-  .profile-image {
-    height: 80px;
+  .discord-icon,
+  .map-icon {
+    max-height: 50px;
   }
-
-  h1.card-title {
-    font-size: 20px;
-    margin-bottom: 4px;
-  }
-
-  .over-text {
-    font-size: 11px;
-  }
-
-  /* Intro-Text */
-  .section-title {
-    font-size: 15px;
-  }
-
-  .intro,
-  .main-text p {
-    font-size: 13px;
-    line-height: 1.35;
-    padding: 0 4px;
-  }
-
-  /* Die 3 Info-Kacheln */
-  .info-item {
-    width: 100%;
-    padding: 5px;
-    border-radius: 12px;
-    margin: 10px 0;
-  }
-
-  .info-header {
-    font-size: 14px;
-  }
-
-  .info-body {
-    font-size: 13px;
-    line-height: 1.4;
-  }
-
-  /* IP & Status */
-  .ip-card {
-    padding: 16px 10px;
-  }
-
-  .ip-button {
-    font-size: 14px;
-    padding: 8px 12px;
-    border-radius: 16px;
-  }
-
-  .server-status-text {
-    font-size: 13px;
-  }
-
-  /* Unten die Icons */
-  .card-buttons a img {
-    height: 45px;
-  }
-
-  /* Footer */
   footer {
-    font-size: 12px;
-    margin-top: 12px;
-  }
-  .left-icon,
-  .right-icon {
-    height: 35px;
-    display: none;
-  }
-  .status-pill {
-    font-size: 9px;
-    padding: 1px 10px;
+    font-size: 0.8rem; /* 12.8px */
+    margin-top: 1rem;
   }
 }
